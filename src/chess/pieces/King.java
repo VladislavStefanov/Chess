@@ -2,6 +2,7 @@ package chess.pieces;
 
 public class King extends AbstractPiece {
 
+    private static final int KING_VALUE = 0;
     private static final String BLACK_KING_SYMBOL = "\u265A";
     private static final String WHITE_KING_SYMBOL = "\u2654";
 
@@ -27,7 +28,7 @@ public class King extends AbstractPiece {
 
     @Override
     public int pieceValue() {
-        return 0;
+        return KING_VALUE;
     }
 
 }

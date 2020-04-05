@@ -2,6 +2,7 @@ package chess.pieces;
 
 public class Knight extends chess.pieces.AbstractPiece {
 
+    private static final int KNIGHT_VALUE = 3;
     private static final String BLACK_KNIGHT_SYMBLOL = "\u265E";
     private static final String WHITE_KNIGHT_SYMBLOL = "\u2658";
 
@@ -34,7 +35,7 @@ public class Knight extends chess.pieces.AbstractPiece {
 
     @Override
     public int pieceValue() {
-        return 0;
+        return KNIGHT_VALUE;
     }
 
 }
