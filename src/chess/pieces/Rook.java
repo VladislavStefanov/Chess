@@ -1,44 +1,34 @@
 package chess.pieces;
 
-import chess.pieces.AbstractPiece;
-
-
 public class Rook extends AbstractPiece {
 
-	public Rook(boolean isWhite) {
-		super(isWhite);
-		// TODO Auto-generated constructor stub
-	}
+    private static final int ROOK_VALUE = 5;
+    private static final String BLACK_ROOK_SYMBOL = "\u265C";
+    private static final String WHITE_ROOK_SYMBOL = "\u2656";
 
-	@Override
-	public void draw() {
-		if (isWhite){
-			System.out.print("\u2656");
-		}
-		else{
-			System.out.print("\u265C");
-		}		
-	}
-	
-	private static Boolean straightPath(int srcRow, int srcCol,
-			int destRow, int destCol) {
-		// returns true if the path is straight
-		// arguments are initial and final coordinates of move in chessboard
-		// array
-		// good for checking if a move is valid
-		return !((srcRow != destRow) && (srcCol != destCol));
-	}
+    public Rook(final boolean isWhite) {
+        super(isWhite);
+    }
 
-	@Override
-	public boolean isMoveValid(int sourceRow, int sourceColumn, int destinationRow, int destinationColumn) {
-		// TODO Auto-generated method stub
-		return straightPath(sourceRow, sourceColumn, destinationRow, destinationColumn);
-	}
+    @Override
+    public void draw() {
+        if (isWhite) {
+            System.out.print(WHITE_ROOK_SYMBOL);
+        } else {
+            System.out.print(BLACK_ROOK_SYMBOL);
+        }
+    }
 
-	@Override
-	public int pieceValue() {
-		// TODO Auto-generated method stub
-		return 5;
-	}
+    @Override
+    public boolean isMoveValid(final int sourceRow, final int sourceColumn,
+            final int destinationRow, final int destinationColumn) {
+        return !((sourceRow != destinationRow)
+                && (sourceColumn != destinationColumn));
+    }
+
+    @Override
+    public int pieceValue() {
+        return ROOK_VALUE;
+    }
 
 }
