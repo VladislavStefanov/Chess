@@ -36,6 +36,6 @@ public abstract class AbstractPiece {
      *
      * @return
      */
-    public abstract int relativeValue();
+    public abstract int pieceValue();
 
 }

@@ -1,7 +1,7 @@
-package pieces;
+package chess.pieces;
 
 
-public class Knight extends pieces.AbstractPiece {
+public class Knight extends chess.pieces.AbstractPiece {
 
 	public Knight(boolean isWhite) {
 		super(isWhite);
@@ -30,12 +30,12 @@ public class Knight extends pieces.AbstractPiece {
 	}
 
 	@Override
-	public boolean isMoveValid(int srcRow, int srcCol, int destRow, int destCol) {
-		return lShapedPath(srcRow, srcCol, destRow, destCol);
+	public boolean isMoveValid(int sourceRow, int sourceColumn, int destinationRow, int destinationColumn) {
+		return lShapedPath(sourceRow, sourceColumn, destinationRow, destinationColumn);
 	}
 
 	@Override
-	public int relativeValue() {
+	public int pieceValue() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -1,5 +1,5 @@
-package pieces;
-import pieces.AbstractPiece;
+package chess.pieces;
+import chess.pieces.AbstractPiece;
 
 
 public class King extends AbstractPiece {
@@ -19,13 +19,13 @@ public class King extends AbstractPiece {
 	}
 
 	@Override
-	public boolean isMoveValid(int srcRow, int srcCol, int destRow, int destCol) {
-		return Math.abs(destRow - srcRow) <= 1
-				|| Math.abs(destCol - srcCol) <= 1;
+	public boolean isMoveValid(int sourceRow, int sourceColumn, int destinationRow, int destinationColumn) {
+		return Math.abs(destinationRow - sourceRow) <= 1
+				|| Math.abs(destinationColumn - sourceColumn) <= 1;
 	}
 
 	@Override
-	public int relativeValue() {
+	public int pieceValue() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

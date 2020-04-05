@@ -1,6 +1,6 @@
-package pieces;
+package chess.pieces;
 
-import pieces.AbstractPiece;
+import chess.pieces.AbstractPiece;
 
 
 public class Rook extends AbstractPiece {
@@ -30,13 +30,13 @@ public class Rook extends AbstractPiece {
 	}
 
 	@Override
-	public boolean isMoveValid(int srcRow, int srcCol, int destRow, int destCol) {
+	public boolean isMoveValid(int sourceRow, int sourceColumn, int destinationRow, int destinationColumn) {
 		// TODO Auto-generated method stub
-		return straightPath(srcRow, srcCol, destRow, destCol);
+		return straightPath(sourceRow, sourceColumn, destinationRow, destinationColumn);
 	}
 
 	@Override
-	public int relativeValue() {
+	public int pieceValue() {
 		// TODO Auto-generated method stub
 		return 5;
 	}

@@ -1,6 +1,6 @@
-package pieces;
+package chess.pieces;
 
-import pieces.AbstractPiece;
+import chess.pieces.AbstractPiece;
 
 public class Pawn extends AbstractPiece {
 
@@ -23,23 +23,23 @@ public class Pawn extends AbstractPiece {
 	}
 
 	@Override
-	public boolean isMoveValid(int srcRow, int srcCol, int destRow, int destCol) {
+	public boolean isMoveValid(int sourceRow, int sourceColumn, int destinationRow, int destinationColumn) {
 			
 			//if pawn moves forward one
 			//or moves forward two from starting position
 			//or takes a piece of black colour
 			//break, else return false (not valid move)
 			if (this.isWhite) {
-				return (((srcCol == destCol) && srcRow == (destRow + 1))
-						|| ((srcRow == 6) && (srcCol == destCol) && (srcRow == (destRow + 2)))
-						|| ((srcRow == (destRow + 1))
-								&& (Math.abs(srcCol - destCol) == 1)));
+				return (((sourceColumn == destinationColumn) && sourceRow == (destinationRow + 1))
+						|| ((sourceRow == 6) && (sourceColumn == destinationColumn) && (sourceRow == (destinationRow + 2)))
+						|| ((sourceRow == (destinationRow + 1))
+								&& (Math.abs(sourceColumn - destinationColumn) == 1)));
 			}
 			else {
-				return (((srcCol == destCol) && srcRow == (destRow - 1))
-						|| ((srcRow == 1) && (srcCol == destCol) && (srcRow == (destRow - 2)))
-						|| ((srcRow == (destRow - 1))
-								&& (Math.abs(srcCol - destCol) == 1)));
+				return (((sourceColumn == destinationColumn) && sourceRow == (destinationRow - 1))
+						|| ((sourceRow == 1) && (sourceColumn == destinationColumn) && (sourceRow == (destinationRow - 2)))
+						|| ((sourceRow == (destinationRow - 1))
+								&& (Math.abs(sourceColumn - destinationColumn) == 1)));
 			}
 			
 
@@ -47,7 +47,7 @@ public class Pawn extends AbstractPiece {
 	}
 
 	@Override
-	public int relativeValue() {
+	public int pieceValue() {
 		// TODO Auto-generated method stub
 		return 1;
 	}

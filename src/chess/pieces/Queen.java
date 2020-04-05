@@ -1,6 +1,6 @@
-package pieces;
+package chess.pieces;
 
-import pieces.AbstractPiece;
+import chess.pieces.AbstractPiece;
 
 public class Queen extends AbstractPiece {
 
@@ -38,14 +38,14 @@ public class Queen extends AbstractPiece {
 	}
 
 	@Override
-	public boolean isMoveValid(int srcRow, int srcCol, int destRow, int destCol) {
+	public boolean isMoveValid(int sourceRow, int sourceColumn, int destinationRow, int destinationColumn) {
 		// TODO Auto-generated method stub
-		return (diagonalPath(srcRow, srcCol, destRow, destCol))
-				|| straightPath(srcRow, srcCol, destRow, destCol);
+		return (diagonalPath(sourceRow, sourceColumn, destinationRow, destinationColumn))
+				|| straightPath(sourceRow, sourceColumn, destinationRow, destinationColumn);
 	}
 
 	@Override
-	public int relativeValue() {
+	public int pieceValue() {
 		// TODO Auto-generated method stub
 		return 9;
 	}
