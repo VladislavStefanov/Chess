@@ -23,6 +23,7 @@ import chess.pieces.Rook;
 
 public class Chessboard {
 
+    private static final String SEPARATING_LINE = "___________________________________________________\n";
     private Boolean gameRunning;
     private AbstractPiece[][] chessboard = new AbstractPiece[NUMBER_OF_ROWS_AND_COLUMNS][NUMBER_OF_ROWS_AND_COLUMNS];// [row][column]
     private static final Scanner USER_INPUT = new Scanner(System.in);
@@ -132,6 +133,10 @@ public class Chessboard {
             }
         }
 
+        generateFirstPlayerColor();
+    }
+
+    private void generateFirstPlayerColor() {
         Random random = new Random();
         isWhitesTurnToMove = random.nextBoolean();
     }
@@ -171,7 +176,7 @@ public class Chessboard {
      * @return True if valid, false if invalid.
      */
 
-    private boolean moveValid() {
+    private boolean isMoveValid() {
 
         // invalid if the move origin or destination is outside the board
 
@@ -256,28 +261,7 @@ public class Chessboard {
      */
     public void move() {
 
-        System.out
-                .println("___________________________________________________\n"
-                        + "Score: White " + whiteScore + " | " + blackScore
-                        + " Black");
-
-        if (isMoveInvalid) {
-            System.err.println("Move is invalid. Please try again:");
-            // System.out.println("Move is invalid. Please try again:");
-            isMoveInvalid = false;
-        }
-
-        else if (isWhitesTurnToMove) {
-            System.out.println(
-                    "___________________________________________________\n"
-                            + "White's turn to move\n"
-                            + "___________________________________________________\n");
-        } else {
-            System.out.println(
-                    "___________________________________________________\n"
-                            + "Black's turn to move\n"
-                            + "___________________________________________________\n");
-        }
+        printScore();
 
         move = USER_INPUT.nextLine();
 
@@ -287,7 +271,6 @@ public class Chessboard {
             return;
         }
 
-        // convert to lower case
         String lowerCase = move.toLowerCase();
         // parse move string into components
         String[] components = lowerCase.split(" ");
@@ -304,7 +287,7 @@ public class Chessboard {
         destinationRow = 7 - (components[2].charAt(1) - '1');
         destinationColumn = components[2].charAt(0) - 'a';
 
-        if (moveValid()) {
+        if (isMoveValid()) {
             updateScore();
             // put piece in destination
             chessboard[destinationRow][destinationColumn] = chessboard[sourceRow][sourceColumn];
@@ -317,6 +300,22 @@ public class Chessboard {
 
         }
 
+    }
+
+    private void printScore() {
+        System.out.println(SEPARATING_LINE + "Score: White " + whiteScore
+                + " | " + blackScore + " Black");
+
+        if (isMoveInvalid) {
+            System.err.println("Move is invalid. Please try again:");
+            isMoveInvalid = false;
+        } else if (isWhitesTurnToMove) {
+            System.out.println(SEPARATING_LINE + "White's turn to move\n"
+                    + SEPARATING_LINE);
+        } else {
+            System.out.println(SEPARATING_LINE + "Black's turn to move\n"
+                    + SEPARATING_LINE);
+        }
     }
 
 }
