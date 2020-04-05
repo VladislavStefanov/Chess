@@ -1,33 +1,33 @@
 package chess.pieces;
-import chess.pieces.AbstractPiece;
-
 
 public class King extends AbstractPiece {
 
-	public King(boolean isWhite) {
-		super(isWhite);
-		// TODO Auto-generated constructor stub
-	}
+    private static final String BLACK_KING_SYMBOL = "\u265A";
+    private static final String WHITE_KING_SYMBOL = "\u2654";
 
-	@Override
-	public void draw() {
-		if (isWhite) {
-			System.out.print("\u2654");
-		} else {
-			System.out.print("\u265A");
-		}
-	}
+    public King(final boolean isWhite) {
+        super(isWhite);
+    }
 
-	@Override
-	public boolean isMoveValid(int sourceRow, int sourceColumn, int destinationRow, int destinationColumn) {
-		return Math.abs(destinationRow - sourceRow) <= 1
-				|| Math.abs(destinationColumn - sourceColumn) <= 1;
-	}
+    @Override
+    public void draw() {
+        if (isWhite) {
+            System.out.print(WHITE_KING_SYMBOL);
+        } else {
+            System.out.print(BLACK_KING_SYMBOL);
+        }
+    }
 
-	@Override
-	public int pieceValue() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public boolean isMoveValid(final int sourceRow, final int sourceColumn,
+            final int destinationRow, final int destinationColumn) {
+        return Math.abs(destinationRow - sourceRow) <= 1
+                || Math.abs(destinationColumn - sourceColumn) <= 1;
+    }
+
+    @Override
+    public int pieceValue() {
+        return 0;
+    }
 
 }
