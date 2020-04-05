@@ -1,4 +1,4 @@
-package pieces;
+package chess;
 
 public class Controller {
 
