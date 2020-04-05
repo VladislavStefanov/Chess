@@ -1,53 +1,54 @@
 package chess.pieces;
 
-import chess.pieces.AbstractPiece;
-
 public class Queen extends AbstractPiece {
 
-	public Queen(boolean isWhite) {
-		super(isWhite);
-		
-		}
+    private static final int QUEEN_VALUE = 9;
+    private static final String BLACK_ROOK_SYMBOL = "\u265B";
+    private static final String WHITE_ROOK_SYMBOL = "\u2655";
 
-	@Override
-	public void draw() {
-		if (isWhite){
-			System.out.print("\u2655");
-		}
-		else{
-			System.out.print("\u265B");
-		}
-	}
+    public Queen(final boolean isWhite) {
+        super(isWhite);
+    }
 
-	private static Boolean diagonalPath(int srcRow, int srcCol, int destRow,
-			int destCol) {
-		// returns true if the path is diagonal
-		// arguments are initial and final coordinates of move in chessboard
-		// array
-		// good for checking if a move is valid
-		return ((Math.abs(srcRow - destRow) == Math.abs(srcCol - destCol)));
-	}
+    @Override
+    public void draw() {
+        if (isWhite) {
+            System.out.print(WHITE_ROOK_SYMBOL);
+        } else {
+            System.out.print(BLACK_ROOK_SYMBOL);
+        }
+    }
 
-	private static Boolean straightPath(int srcRow, int srcCol, int destRow,
-			int destCol) {
-		// returns true if the path is straight
-		// arguments are initial and final coordinates of move in chessboard
-		// array
-		// good for checking if a move is valid
-		return !((srcRow != destRow) && (srcCol != destCol));
-	}
+    private static Boolean diagonalPath(final int sourceRow, final int sourceColumn,
+            final int destinationRow, final int destinationColumn) {
+        // returns true if the path is diagonal
+        // arguments are initial and final coordinates of move in chessboard
+        // array
+        // good for checking if a move is valid
+        return ((Math.abs(sourceRow - destinationRow) == Math.abs(sourceColumn - destinationColumn)));
+    }
 
-	@Override
-	public boolean isMoveValid(int sourceRow, int sourceColumn, int destinationRow, int destinationColumn) {
-		// TODO Auto-generated method stub
-		return (diagonalPath(sourceRow, sourceColumn, destinationRow, destinationColumn))
-				|| straightPath(sourceRow, sourceColumn, destinationRow, destinationColumn);
-	}
+    private static Boolean straightPath(final int sourceRow, final int sourceColumn,
+            final int destinationRow, final int destinationColumn) {
+        // returns true if the path is straight
+        // arguments are initial and final coordinates of move in chessboard
+        // array
+        // good for checking if a move is valid
+        return !((sourceRow != destinationRow) && (sourceColumn != destinationColumn));
+    }
 
-	@Override
-	public int pieceValue() {
-		// TODO Auto-generated method stub
-		return 9;
-	}
+    @Override
+    public boolean isMoveValid(final int sourceRow, final int sourceColumn,
+            final int destinationRow, final int destinationColumn) {
+        return (diagonalPath(sourceRow, sourceColumn, destinationRow,
+                destinationColumn))
+                || straightPath(sourceRow, sourceColumn, destinationRow,
+                        destinationColumn);
+    }
+
+    @Override
+    public int pieceValue() {
+        return QUEEN_VALUE;
+    }
 
 }
