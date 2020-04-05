@@ -34,7 +34,6 @@ public class Knight extends chess.pieces.AbstractPiece {
 
     @Override
     public int pieceValue() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
