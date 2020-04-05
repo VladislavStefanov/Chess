@@ -1,24 +1,14 @@
 package pieces;
 
-import java.util.Scanner;
-
-import pieces.Chessboard;
-
 public class Controller {
-	
-	static Scanner user_input = new Scanner(System.in);
 
-	
-	public static void main(String[] args) {
-		Chessboard myChessboard = new Chessboard();
+    public static void main(final String[] args) {
+        Chessboard chessboard = new Chessboard();
 
-
-		while (myChessboard.getGameRunning()) {
-
-			myChessboard.printBoard();
-			myChessboard.move();
-
-		}
-	}
+        while (chessboard.isGameRunning()) {
+            chessboard.printBoard();
+            chessboard.move();
+        }
+    }
 
 }
